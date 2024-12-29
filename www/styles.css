@@ -1,0 +1,254 @@
+/* Style pour la section d'en-tête */
+.navbar-title {
+    font-size: 2.0rem;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    font-size: 1.25rem;
+
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+}
+
+/* Style pour la section des fonctionnalités */
+.features-section img {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s;
+}
+.features-section img:hover {
+    transform: scale(1.1);
+}
+
+.features-section h5 {
+    font-weight: bold;
+}
+
+.features-section p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Section météo */
+.weather-section {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+/* Conteneur principal pour le carrousel */
+.weather-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Carrousel (conteneur des cartes météo) */
+.weather-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Masquer la barre de défilement sur Firefox */
+    gap: 20px; /* Espacement entre les cartes */
+    padding: 10px;
+}
+
+.weather-carousel::-webkit-scrollbar {
+    display: none; /* Masquer la barre de défilement sur Chrome, Safari */
+}
+
+/* Cartes météo */
+.weather-card {
+    flex: 0 0 30px; /* Largeur fixe des cartes */
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Cartes météo */
+.weather-card {
+    flex: 0 0 120px; /* Largeur fixe des cartes */
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Images météo */
+.weather-card img {
+    width: 60px; /* Taille raisonnable pour les images */
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+/* Texte des cartes */
+.weather-card h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px;
+}
+
+.weather-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Boutons de navigation */
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn.left-btn {
+    left: 10px;
+}
+
+.carousel-btn.right-btn {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Style pour le pied de page */
+.footer {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Conteneur du tableau avec défilement */
+.table-container {
+    max-height: 300px; /* Hauteur fixe */
+    overflow-y: auto; /* Activer le défilement vertical */
+    border: 1px solid #ddd; /* Optionnel : bordure autour du tableau */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Style pour les en-têtes du tableau (sticky) */
+.table thead th {
+    position: sticky;
+    top: 0; /* Fixer les en-têtes en haut */
+    background-color: #f8f9fa; /* Couleur de fond pour les en-têtes */
+    z-index: 2; /* Mettre les en-têtes devant les cellules */
+}
+
+/* Style supplémentaire pour un rendu propre */
+.table {
+    margin-bottom: 0; /* Retirer les marges supplémentaires */
+}
+
+/* Styles généraux pour les tableaux */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête du tableau */
+.table thead {
+    background-color: #007bff;
+    color: #000000;
+}
+
+.table thead th {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Lignes du tableau */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Cellules du tableau */
+.table tbody td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Boutons dans le tableau */
+.table .btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+/* États des capteurs */
+.table tbody td .text-success {
+    color: #28a745;
+}
+
+.table tbody td .text-danger {
+    color: #dc3545;
+}
+
+/* Style pour le lien des données brutes */
+#disp-brut-data-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#disp-brut-data-link:hover {
+    text-decoration: underline;
+}

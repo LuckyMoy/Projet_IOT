@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Chart.js - Adapter</title>
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure chartjs-adapter-date-fns -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        canvas#capteur-chart {
+            max-width: 100%;
+            max-height: 400px;
+            margin: 20px auto;
+            display: block;
+        }
+        #chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Chart.js avec échelle temporelle</h1>
+    <div>
+        <h3 id="chart-title" style="display: none;">Graphique des mesures</h3>
+        <canvas id="capteur-chart" style="display: none;"></canvas>
+    </div>
+
+    <script>
+        // Mock des mesures
+        const mockMesures = [
+            { d: '2024-11-29 10:00:00', v: 22.5 },
+            { d: '2024-11-29 11:00:00', v: 23.0 },
+            { d: '2024-11-29 12:00:00', v: 22.8 }
+        ];
+
+        // Fonction pour afficher un graphique des mesures
+        async function plotCapteur() {
+            try {
+                const labels = mockMesures.map(m => new Date(m.d)); // Les labels doivent être des objets Date
+                const data = mockMesures.map(m => m.v);
+
+                // Afficher le titre et le canvas
+                document.getElementById("chart-title").textContent = `Graphique des mesures`;
+                document.getElementById("chart-title").style.display = "block";
+                const chartCanvas = document.getElementById("capteur-chart");
+                chartCanvas.style.display = "block";
+
+                // Créer ou mettre à jour le graphique
+                if (window.capteurChart) {
+                    window.capteurChart.destroy(); // Détruire l'ancien graphique s'il existe
+                }
+
+                window.capteurChart = new Chart(chartCanvas, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Température',
+                            data: data,
+                            borderColor: 'blue',
+                            backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                type: 'time', // Échelle temporelle
+                                time: {
+                                    unit: 'hour' // Affiche les heures
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Temps'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Valeur'
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+                alert("Erreur lors du tracé du graphique.");
+            }
+        }
+
+        // Charger et tracer le graphique au chargement de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            plotCapteur();
+        });
+    </script>
+</body>
+</html>

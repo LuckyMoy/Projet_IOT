@@ -1,0 +1,5 @@
+/.DS_Store
+/__pycache__
+/SQL/logement_.db
+/api.env
+/www/__pycache__
